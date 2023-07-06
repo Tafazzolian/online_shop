@@ -1,0 +1,19 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block extra_headers %}
+    <link rel="stylesheet" href="{% static 'home/css/style.css' %}">
+{% endblock %}
+
+{% block content %}
+
+    <h2>{{ product.name }}</h2>
+    <small>{{ product.created }}</small><br/>
+    <div class="card" style="width: 18rem;">
+    <img src="{{ product.image.url }}">
+    </div>
+    <p>{{ product.price }} Toman</p>
+    <p> {{ product.description }}</p>
+    <a href="#">Buy Now!</a>
+
+{% endblock %}

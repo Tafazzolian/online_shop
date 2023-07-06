@@ -1,0 +1,22 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block extra_headers %}
+    <link rel="stylesheet" href="{% static 'home/css/style.css' %}">
+{% endblock %}
+
+{% block content %}
+
+    <h3>Welcome {{ request.user }}</h3>
+    {% for i in products %}
+        <p>{{ i.name }}</p>
+        <div class="card" style="width: 18rem;">
+              <img src="{{ i.image.url }}" class="card-img-top">
+              <div class="card-body">
+                <h5 class="card-title">{{ i.name }}</h5>
+                <p class="card-text">{{ i.description }}</p>
+                <a href="{{ i.get_absolute_url}}" class="btn btn-primary">Go to product</a>
+              </div>
+        </div>
+    {% endfor %}
+{% endblock %}
